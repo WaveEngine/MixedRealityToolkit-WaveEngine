@@ -26,7 +26,7 @@ Items:
         Id: 615f5159-9a4d-47f6-9e3b-012b4dc13180
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: a3fbf470-a26b-42e2-9dd3-673c00aecd42
+        ReflectionProbe: 4cedfd4b-d00d-467b-9875-029a69a0f749
     Children: []
     Id: 046665f3-bf43-4a2f-9c17-ac19073d0d84
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
@@ -1101,7 +1101,7 @@ Items:
                 Children: []
                 Id: c161a5f8-85bd-4403-b026-8f564616a7ac
               - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
-                Name: changedIcon
+                Name: changedIconButNoTint
                 Tag: null
                 IsEnabled: true
                 IsStatic: false
@@ -1131,6 +1131,8 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: b30317f6-62a1-404e-a1af-852f6ddbd5f5
                     BackPlate: null
+                    CreatesNewBackPlateMaterialInstance: false
+                    CreatesNewIconMaterialInstance: false
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
                     IsEnabled: true
                     PrimaryColor:
@@ -1171,6 +1173,8 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 5e2f38df-d5bf-40e0-9f1a-2aee7fa96e61
                     BackPlate: null
+                    CreatesNewBackPlateMaterialInstance: false
+                    CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
                     IsEnabled: true
                     PrimaryColor:
@@ -1211,6 +1215,8 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 72544f1a-a422-43a4-8331-a06cae6c3450
                     BackPlate: 5b5bc9bf-19f4-4513-9e52-d0e5935da820
+                    CreatesNewBackPlateMaterialInstance: true
+                    CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
                     IsEnabled: true
                     PrimaryColor:

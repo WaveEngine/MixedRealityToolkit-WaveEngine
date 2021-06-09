@@ -20,9 +20,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         private MaterialComponent iconMaterial = null;
 
         private Material backPlate;
-        private Material icon;
         private HoloGraphic backPlateHoloMaterial;
+
+        private Material icon;
         private HoloGraphic iconHoloMaterial;
+
         private Color primaryColor = Color.White;
 
         /// <summary>
@@ -41,6 +43,16 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
                 }
             }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether back plate material should be a new material instance.
+        /// </summary>
+        public bool CreatesNewBackPlateMaterialInstance { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether icon material should be a new material instance.
+        /// </summary>
+        public bool CreatesNewIconMaterialInstance { get; set; }
 
         /// <summary>
         /// Gets or sets button icon.
@@ -93,7 +105,9 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         {
             if (this.backPlate != null && this.backPlateMaterial != null)
             {
-                var newMaterialInstance = this.backPlate.LoadNewInstance(this.Managers.AssetSceneManager);
+                var newMaterialInstance = this.CreatesNewBackPlateMaterialInstance
+                    ? this.backPlate.LoadNewInstance(this.Managers.AssetSceneManager)
+                    : this.backPlate;
                 this.backPlateMaterial.Material = newMaterialInstance;
                 this.backPlateHoloMaterial = new HoloGraphic(newMaterialInstance);
             }
@@ -103,7 +117,9 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         {
             if (this.icon != null && this.iconMaterial != null)
             {
-                var newMaterialInstance = this.icon.LoadNewInstance(this.Managers.AssetSceneManager);
+                var newMaterialInstance = this.CreatesNewIconMaterialInstance
+                    ? this.icon.LoadNewInstance(this.Managers.AssetSceneManager)
+                    : this.icon;
                 this.iconMaterial.Material = newMaterialInstance;
                 this.iconHoloMaterial = new HoloGraphic(newMaterialInstance);
                 this.UpdateIconTint();
