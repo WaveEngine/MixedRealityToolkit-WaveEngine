@@ -1,5 +1,4 @@
 ﻿// Copyright © Wave Engine S.L. All rights reserved. Use is subject to license terms.
-using WaveEngine.Common.Attributes;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Components.Graphics3D;
 using WaveEngine.Framework;
@@ -21,9 +20,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         private MaterialComponent iconMaterial = null;
 
         private Material backPlate;
+        private Material cachedBackPlate;
         private HoloGraphic backPlateHoloMaterial;
 
         private Material icon;
+        private Material cachedIcon;
         private HoloGraphic iconHoloMaterial;
 
         private Color primaryColor = Color.White;
@@ -40,6 +41,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
                 if (this.backPlate != value)
                 {
                     this.backPlate = value;
+                    this.InvalidateMaterial(ref this.cachedBackPlate);
                     this.OnBackPlateUpdate();
                 }
             }
@@ -67,6 +69,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
                 if (this.icon != value)
                 {
                     this.icon = value;
+                    this.InvalidateMaterial(ref this.cachedIcon);
                     this.OnIconUpdate();
                 }
             }
@@ -97,29 +100,22 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
             this.OnIconUpdate();
         }
 
-        private void OnBackPlateUpdate()
-        {
-            if (this.backPlate != null && this.backPlateMaterial != null)
-            {
-                var newMaterialInstance = this.CreatesNewBackPlateMaterialInstance
-                    ? this.backPlate.LoadNewInstance(this.Managers.AssetSceneManager)
-                    : this.backPlate;
-                this.backPlateMaterial.Material = newMaterialInstance;
-                this.backPlateHoloMaterial = new HoloGraphic(newMaterialInstance);
-            }
-        }
+        private void OnBackPlateUpdate() => this.ApplyMaterial(
+            this.backPlate,
+            this.backPlateMaterial,
+            this.CreatesNewBackPlateMaterialInstance,
+            ref this.cachedBackPlate,
+            ref this.backPlateHoloMaterial);
 
         private void OnIconUpdate()
         {
-            if (this.icon != null && this.iconMaterial != null)
-            {
-                var newMaterialInstance = this.CreatesNewIconMaterialInstance
-                    ? this.icon.LoadNewInstance(this.Managers.AssetSceneManager)
-                    : this.icon;
-                this.iconMaterial.Material = newMaterialInstance;
-                this.iconHoloMaterial = new HoloGraphic(newMaterialInstance);
-                this.UpdateIconTint();
-            }
+            this.ApplyMaterial(
+              this.icon,
+              this.iconMaterial,
+              this.CreatesNewIconMaterialInstance,
+              ref this.cachedIcon,
+              ref this.iconHoloMaterial);
+            this.UpdateIconTint();
         }
 
         private void OnPrimaryColorUpdate()
@@ -134,5 +130,33 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
                 this.iconHoloMaterial.Albedo = this.primaryColor;
             }
         }
+
+        private void ApplyMaterial(
+            Material sourceMaterial,
+            MaterialComponent targetMaterialComponent,
+            bool newInstanceFlag,
+            ref Material cachedMaterial,
+            ref HoloGraphic targetHoloMaterial)
+        {
+            if (sourceMaterial != null && targetMaterialComponent != null)
+            {
+                if (cachedMaterial == null)
+                {
+                    if (newInstanceFlag)
+                    {
+                        cachedMaterial = sourceMaterial.LoadNewInstance(this.Managers.AssetSceneManager);
+                    }
+                    else
+                    {
+                        cachedMaterial = sourceMaterial;
+                    }
+                }
+
+                targetMaterialComponent.Material = cachedMaterial;
+                targetHoloMaterial = new HoloGraphic(cachedMaterial);
+            }
+        }
+
+        private void InvalidateMaterial(ref Material material) => material = null;
     }
 }
