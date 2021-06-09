@@ -58,8 +58,8 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
             {
                 this.toggleStateComponent = new ToggleStateComponent();
                 this.Owner.AddComponent(this.toggleStateComponent);
-                this.Owner.AddComponent(new ToggleOffStateConfigurator() { CanBeApplied = false });
-                this.Owner.AddComponent(new ToggleOnStateConfigurator() { CanBeApplied = false });
+                this.Owner.AddComponent(new ToggleStateConfigurator() { Target = ToggleState.Off });
+                this.Owner.AddComponent(new ToggleStateConfigurator() { Target = ToggleState.On });
             }
         }
 
@@ -75,8 +75,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
             for (int i = 0; i < allConfigurators.Count(); i++)
             {
                 var current = allConfigurators.ElementAt(i);
-                current.CanBeApplied = current.Target == newState.Value;
-                current.IsEnabled = current.CanBeApplied;
+                current.IsEnabled = current.Target == newState.Value;
             }
         }
 

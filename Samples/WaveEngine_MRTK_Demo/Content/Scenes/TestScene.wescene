@@ -26,7 +26,7 @@ Items:
         Id: 615f5159-9a4d-47f6-9e3b-012b4dc13180
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: c786795c-9d58-49b3-8295-8d2d922af46a
+        ReflectionProbe: 0b4b4104-ceb4-4a7c-b053-33366660ed2d
     Children: []
     Id: 046665f3-bf43-4a2f-9c17-ac19073d0d84
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
@@ -1131,7 +1131,6 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: b30317f6-62a1-404e-a1af-852f6ddbd5f5
                     BackPlate: null
-                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: false
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
@@ -1174,7 +1173,6 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 5e2f38df-d5bf-40e0-9f1a-2aee7fa96e61
                     BackPlate: null
-                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
@@ -1217,7 +1215,6 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 72544f1a-a422-43a4-8331-a06cae6c3450
                     BackPlate: 5b5bc9bf-19f4-4513-9e52-d0e5935da820
-                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: true
                     CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
@@ -1258,37 +1255,37 @@ Items:
                     ScenePrefabProperty:
                       PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButton,WaveEngine.MRTK
-                    Id: 9160e403-8dc9-4e69-a40e-6c2a943f93c2
+                    Id: e6dc8ffd-0251-41fc-ba20-7d2e5ad207cf
                     IsEnabled: true
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateComponent,WaveEngine.MRTK
-                    Id: d19a2536-9519-4029-bdc2-53731f99ae9d
+                    Id: 6f99bf08-c775-431e-9898-b25472326949
                     IsEnabled: true
-                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleOffStateConfigurator,WaveEngine.MRTK
-                    Id: 79ec6e3a-dac3-4c9b-8a58-64b4f607a372
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateConfigurator,WaveEngine.MRTK
+                    Id: 7c8eca5d-b7e2-4ff6-8184-b9b6444273c4
                     BackPlate: null
-                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
                     Icon: 469a29b3-53be-4afd-adbc-14ca42894154
                     IsEnabled: true
                     PrimaryColor:
                       A: 255
-                      B: 109
-                      G: 109
-                      R: 116
-                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleOnStateConfigurator,WaveEngine.MRTK
-                    Id: 63b00643-7591-4193-8c32-932431e0cb47
+                      B: 0
+                      G: 0
+                      R: 252
+                    Target: Off
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateConfigurator,WaveEngine.MRTK
+                    Id: f53682fd-5bfd-40d4-95b7-80800c4cce9c
                     BackPlate: null
-                    CanBeApplied: false
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
                     IsEnabled: false
                     PrimaryColor:
                       A: 255
-                      B: 255
-                      G: 255
-                      R: 255
+                      B: 33
+                      G: 190
+                      R: 56
+                    Target: On
                 Children: []
                 Id: fa14ea29-1d55-4ee1-867f-647e0dd227e8
             Id: a4eb9292-cc1a-4d6d-ae7c-044a0034c214
