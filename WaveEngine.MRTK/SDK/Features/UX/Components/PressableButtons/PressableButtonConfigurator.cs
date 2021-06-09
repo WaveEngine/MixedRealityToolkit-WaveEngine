@@ -1,4 +1,5 @@
 ﻿// Copyright © Wave Engine S.L. All rights reserved. Use is subject to license terms.
+using WaveEngine.Common.Attributes;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Components.Graphics3D;
 using WaveEngine.Framework;
@@ -55,6 +56,12 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         public bool CreatesNewIconMaterialInstance { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether configurator could be applied.
+        /// </summary>
+        [DontRenderProperty]
+        public bool CanBeApplied { get; set; } = true;
+
+        /// <summary>
         /// Gets or sets button icon.
         /// </summary>
         public Material Icon
@@ -89,21 +96,16 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         }
 
         /// <inheritdoc />
-        protected override bool OnAttached()
+        protected override void OnActivated()
         {
-            bool attached = base.OnAttached();
-            if (attached)
-            {
-                this.OnBackPlateUpdate();
-                this.OnIconUpdate();
-            }
-
-            return attached;
+            base.OnActivated();
+            this.OnBackPlateUpdate();
+            this.OnIconUpdate();
         }
 
         private void OnBackPlateUpdate()
         {
-            if (this.backPlate != null && this.backPlateMaterial != null)
+            if (this.CanBeApplied && this.backPlate != null && this.backPlateMaterial != null)
             {
                 var newMaterialInstance = this.CreatesNewBackPlateMaterialInstance
                     ? this.backPlate.LoadNewInstance(this.Managers.AssetSceneManager)
@@ -115,7 +117,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
 
         private void OnIconUpdate()
         {
-            if (this.icon != null && this.iconMaterial != null)
+            if (this.CanBeApplied && this.icon != null && this.iconMaterial != null)
             {
                 var newMaterialInstance = this.CreatesNewIconMaterialInstance
                     ? this.icon.LoadNewInstance(this.Managers.AssetSceneManager)
@@ -133,7 +135,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
 
         private void UpdateIconTint()
         {
-            if (this.iconHoloMaterial != null)
+            if (this.CanBeApplied && this.iconHoloMaterial != null)
             {
                 this.iconHoloMaterial.Albedo = this.primaryColor;
             }

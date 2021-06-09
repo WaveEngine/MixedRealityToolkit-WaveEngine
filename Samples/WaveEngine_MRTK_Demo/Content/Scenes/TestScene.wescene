@@ -26,7 +26,7 @@ Items:
         Id: 615f5159-9a4d-47f6-9e3b-012b4dc13180
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: 4cedfd4b-d00d-467b-9875-029a69a0f749
+        ReflectionProbe: c786795c-9d58-49b3-8295-8d2d922af46a
     Children: []
     Id: 046665f3-bf43-4a2f-9c17-ac19073d0d84
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
@@ -1131,6 +1131,7 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: b30317f6-62a1-404e-a1af-852f6ddbd5f5
                     BackPlate: null
+                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: false
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
@@ -1173,6 +1174,7 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 5e2f38df-d5bf-40e0-9f1a-2aee7fa96e61
                     BackPlate: null
+                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
@@ -1215,6 +1217,7 @@ Items:
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 72544f1a-a422-43a4-8331-a06cae6c3450
                     BackPlate: 5b5bc9bf-19f4-4513-9e52-d0e5935da820
+                    CanBeApplied: true
                     CreatesNewBackPlateMaterialInstance: true
                     CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
@@ -1226,6 +1229,68 @@ Items:
                       R: 255
                 Children: []
                 Id: 6370bbb0-3885-427f-a857-199d39fb4579
+              - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+                Name: singleToggleButton
+                Tag: null
+                IsEnabled: true
+                IsStatic: false
+                Components:
+                  - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                    Id: 6b3b7699-4f22-479b-a327-eca5262d2f41
+                    IsEnabled: true
+                    LocalOrientation:
+                      W: 1.0
+                      X: 0.0
+                      Y: -4.36332302E-05
+                      Z: 0.0
+                    LocalPosition:
+                      X: -0.0486710668
+                      Y: 0.00192330778
+                      Z: -2.08616257E-06
+                    LocalScale:
+                      X: 1.0
+                      Y: 1.0
+                      Z: 1.0
+                  - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                    Id: 43dfaa81-9a82-43d3-b764-d08b43bb12d7
+                    DuplicateMaterials: false
+                    IsEnabled: true
+                    ScenePrefabProperty:
+                      PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButton,WaveEngine.MRTK
+                    Id: 9160e403-8dc9-4e69-a40e-6c2a943f93c2
+                    IsEnabled: true
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateComponent,WaveEngine.MRTK
+                    Id: d19a2536-9519-4029-bdc2-53731f99ae9d
+                    IsEnabled: true
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleOffStateConfigurator,WaveEngine.MRTK
+                    Id: 79ec6e3a-dac3-4c9b-8a58-64b4f607a372
+                    BackPlate: null
+                    CanBeApplied: true
+                    CreatesNewBackPlateMaterialInstance: false
+                    CreatesNewIconMaterialInstance: true
+                    Icon: 469a29b3-53be-4afd-adbc-14ca42894154
+                    IsEnabled: true
+                    PrimaryColor:
+                      A: 255
+                      B: 109
+                      G: 109
+                      R: 116
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleOnStateConfigurator,WaveEngine.MRTK
+                    Id: 63b00643-7591-4193-8c32-932431e0cb47
+                    BackPlate: null
+                    CanBeApplied: false
+                    CreatesNewBackPlateMaterialInstance: false
+                    CreatesNewIconMaterialInstance: true
+                    Icon: d129f5e3-9a07-442b-8f09-779075e73943
+                    IsEnabled: false
+                    PrimaryColor:
+                      A: 255
+                      B: 255
+                      G: 255
+                      R: 255
+                Children: []
+                Id: fa14ea29-1d55-4ee1-867f-647e0dd227e8
             Id: a4eb9292-cc1a-4d6d-ae7c-044a0034c214
         Id: cd9b0107-cd4a-420d-9815-0c6318fddf10
     Id: bf7601de-e3ee-4c6a-9ec4-717fc4c11ddd
