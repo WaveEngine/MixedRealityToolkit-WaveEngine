@@ -178,7 +178,7 @@ Items:
         Children:
           - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
             Name: UIButtonSquareIcon
-            Tag: null
+            Tag: icon
             IsEnabled: true
             IsStatic: false
             Components:
