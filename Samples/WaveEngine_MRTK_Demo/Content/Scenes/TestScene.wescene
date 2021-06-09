@@ -26,7 +26,7 @@ Items:
         Id: 615f5159-9a4d-47f6-9e3b-012b4dc13180
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: 0b4b4104-ceb4-4a7c-b053-33366660ed2d
+        ReflectionProbe: e037bc29-3de3-49cc-a4e6-dc1a5cd49071
     Children: []
     Id: 046665f3-bf43-4a2f-9c17-ac19073d0d84
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
@@ -1262,7 +1262,7 @@ Items:
                     IsEnabled: true
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateConfigurator,WaveEngine.MRTK
                     Id: 7c8eca5d-b7e2-4ff6-8184-b9b6444273c4
-                    BackPlate: null
+                    BackPlate: 95c775d7-1461-4465-beb0-84ec959e4ede
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
                     Icon: 469a29b3-53be-4afd-adbc-14ca42894154
@@ -1275,7 +1275,7 @@ Items:
                     Target: Off
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateConfigurator,WaveEngine.MRTK
                     Id: f53682fd-5bfd-40d4-95b7-80800c4cce9c
-                    BackPlate: null
+                    BackPlate: 4f32ee6e-22c9-48be-ad27-76ba638454fb
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943

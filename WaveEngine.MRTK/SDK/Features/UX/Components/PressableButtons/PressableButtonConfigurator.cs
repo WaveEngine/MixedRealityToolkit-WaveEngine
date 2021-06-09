@@ -142,14 +142,9 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
             {
                 if (cachedMaterial == null)
                 {
-                    if (newInstanceFlag)
-                    {
-                        cachedMaterial = sourceMaterial.LoadNewInstance(this.Managers.AssetSceneManager);
-                    }
-                    else
-                    {
-                        cachedMaterial = sourceMaterial;
-                    }
+                    cachedMaterial = newInstanceFlag
+                        ? sourceMaterial.LoadNewInstance(this.Managers.AssetSceneManager)
+                        : sourceMaterial;
                 }
 
                 targetMaterialComponent.Material = cachedMaterial;
