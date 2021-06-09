@@ -13,12 +13,34 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
     /// </summary>
     public class PressableButtonConfigurator : Component
     {
+        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "backPlate", isRequired: true)]
+        private MaterialComponent backPlateMaterial = null;
+
         [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "icon", isRequired: true)]
         private MaterialComponent iconMaterial = null;
 
+        private Material backPlate;
         private Material icon;
+        private HoloGraphic backPlateHoloMaterial;
         private HoloGraphic iconHoloMaterial;
         private Color primaryColor = Color.White;
+
+        /// <summary>
+        /// Gets or sets back plate material.
+        /// </summary>
+        public Material BackPlate
+        {
+            get => this.backPlate;
+
+            set
+            {
+                if (this.backPlate != value)
+                {
+                    this.backPlate = value;
+                    this.OnBackPlateUpdate();
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets button icon.
@@ -60,10 +82,21 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
             bool attached = base.OnAttached();
             if (attached)
             {
+                this.OnBackPlateUpdate();
                 this.OnIconUpdate();
             }
 
             return attached;
+        }
+
+        private void OnBackPlateUpdate()
+        {
+            if (this.backPlate != null && this.backPlateMaterial != null)
+            {
+                var newMaterialInstance = this.backPlate.LoadNewInstance(this.Managers.AssetSceneManager);
+                this.backPlateMaterial.Material = newMaterialInstance;
+                this.backPlateHoloMaterial = new HoloGraphic(newMaterialInstance);
+            }
         }
 
         private void OnIconUpdate()

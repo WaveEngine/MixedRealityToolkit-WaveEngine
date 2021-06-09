@@ -26,7 +26,7 @@ Items:
         Id: 615f5159-9a4d-47f6-9e3b-012b4dc13180
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: 3124c2cb-9501-4c8c-b659-eaf4339cf8ce
+        ReflectionProbe: a3fbf470-a26b-42e2-9dd3-673c00aecd42
     Children: []
     Id: 046665f3-bf43-4a2f-9c17-ac19073d0d84
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
@@ -1063,7 +1063,7 @@ Items:
                   Z: 0.0
                 LocalPosition:
                   X: 0.0
-                  Y: 0.0
+                  Y: 0.0477196798
                   Z: 0.0
                 LocalScale:
                   X: 1.0
@@ -1130,6 +1130,7 @@ Items:
                       PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: b30317f6-62a1-404e-a1af-852f6ddbd5f5
+                    BackPlate: null
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
                     IsEnabled: true
                     PrimaryColor:
@@ -1151,7 +1152,7 @@ Items:
                     LocalOrientation:
                       W: 1.0
                       X: 0.0
-                      Y: 0.0
+                      Y: -4.36332302E-05
                       Z: 0.0
                     LocalPosition:
                       X: 0.0
@@ -1169,6 +1170,7 @@ Items:
                       PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
                     Id: 5e2f38df-d5bf-40e0-9f1a-2aee7fa96e61
+                    BackPlate: null
                     Icon: d129f5e3-9a07-442b-8f09-779075e73943
                     IsEnabled: true
                     PrimaryColor:
@@ -1178,6 +1180,46 @@ Items:
                       R: 255
                 Children: []
                 Id: 347b1c2f-c021-4f4a-acf6-b0e013453b15
+              - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+                Name: changedIconAndBack
+                Tag: null
+                IsEnabled: true
+                IsStatic: false
+                Components:
+                  - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                    Id: ee8b66fe-cb73-42fe-9354-1d8513c0a289
+                    IsEnabled: true
+                    LocalOrientation:
+                      W: 1.0
+                      X: 0.0
+                      Y: -4.36332302E-05
+                      Z: 0.0
+                    LocalPosition:
+                      X: 0.0
+                      Y: -0.117862195
+                      Z: 0.0
+                    LocalScale:
+                      X: 1.0
+                      Y: 1.0
+                      Z: 1.0
+                  - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                    Id: a092894d-598b-46cf-89ff-4f2a20e49403
+                    DuplicateMaterials: false
+                    IsEnabled: true
+                    ScenePrefabProperty:
+                      PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
+                    Id: 72544f1a-a422-43a4-8331-a06cae6c3450
+                    BackPlate: 5b5bc9bf-19f4-4513-9e52-d0e5935da820
+                    Icon: d129f5e3-9a07-442b-8f09-779075e73943
+                    IsEnabled: true
+                    PrimaryColor:
+                      A: 255
+                      B: 4
+                      G: 0
+                      R: 255
+                Children: []
+                Id: 6370bbb0-3885-427f-a857-199d39fb4579
             Id: a4eb9292-cc1a-4d6d-ae7c-044a0034c214
         Id: cd9b0107-cd4a-420d-9815-0c6318fddf10
     Id: bf7601de-e3ee-4c6a-9ec4-717fc4c11ddd

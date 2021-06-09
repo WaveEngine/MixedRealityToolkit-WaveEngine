@@ -97,7 +97,7 @@ Items:
         Children:
           - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
             Name: Quad
-            Tag: null
+            Tag: backPlate
             IsEnabled: true
             IsStatic: false
             Components:
