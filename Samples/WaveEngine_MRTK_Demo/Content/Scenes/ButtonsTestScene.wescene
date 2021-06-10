@@ -1,0 +1,832 @@
+!WaveEngine.Framework.Assets.AssetSources.Entities.SceneModel,WaveEngine.Framework
+Items:
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: SceneManagers
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 16c60597-cd18-4af6-a268-872e92808207
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !WaveEngine.Components.Graphics3D.EnvironmentComponent,WaveEngine.Framework
+        Id: 721f879f-b83e-4e13-b3dc-375de85062c9
+        IntensityMultiplier: 1.0
+        IsEnabled: true
+        ReflectionProbe: 84a6534a-7437-478a-b324-92d26ee4db69
+      - !WaveEngine.Components.Graphics3D.ShadowMapComponent,WaveEngine.Framework
+        Id: c10eea46-7369-41fa-ba9b-da027e9636f7
+        AutoDepthBounds: false
+        DirectionalResolution: Size_2048
+        IsEnabled: true
+        PunctualResolution: Size_512
+        ShadowFilter: PCF3x3
+        SpotResolution: Size_512
+    Children: []
+    Id: b2d3cd08-9bc3-4d6a-852c-b0fc68f064f8
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: Camera
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 77c1a3e2-9ee0-4c5c-bde3-4d07b454a931
+        IsEnabled: true
+        LocalOrientation:
+          W: -4.37113883E-08
+          X: 0.0
+          Y: -1.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: -0.49622497
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !WaveEngine.Components.Cameras.FreeCamera3D,WaveEngine.Components
+        Id: 974c6a83-061b-459d-aa07-237259bb3b2c
+        IsEnabled: true
+        MaxPitch: 1.49225652
+        MouseSensibility: 0.200000003
+        Speed: 0.200000003
+        TouchMoveAndOrientationRatio: 0.5
+        TouchSensibility: 1.0
+        UpdateOrder: 0.5
+      - !WaveEngine.Framework.Graphics.Camera3D,WaveEngine.Framework
+        Id: 45c3b7cb-5e69-4bf0-b32b-540319d9175e
+        Aperture: 1.0
+        AspectRatio: 1.36725664
+        AutoDepthBounds: false
+        AutoExposureEnabled: false
+        CameraOrder: 0.0
+        ClearDepth: 1.0
+        ClearFlags: All
+        ClearStencil: 0
+        Compensation: 0.0
+        DepthRange:
+          MaxDepth: 1.0
+          MinDepth: 0.0
+        DisplayTag: null
+        DisplayTagDirty: false
+        Exposure: 1.0
+        FarPlane: 1000.0
+        FieldOfView: 0.785398185
+        FieldOfViewAxis: Vertical
+        FocalDistance: 1.0
+        FocalLength: 50.0
+        FrustumCullingEnabled: true
+        HDREnabled: true
+        IsEnabled: true
+        LayerMaskDefaultValue: true
+        LinearBackgroundColor:
+          A: 1.0
+          B: 0.851251662
+          G: 0.306634784
+          R: 0.12752977
+        LogLuminanceRange: 12.0
+        MinLogLuminance: -10.0
+        NearPlane: 0.100000001
+        ScreenViewport:
+          Height: 226.0
+          MaxDepth: 1.0
+          MinDepth: 0.0
+          Width: 309.0
+          X: 0.0
+          Y: 0.0
+        Sensitivity: 100.0
+        SensorSize:
+          X: 36.0
+          Y: 24.0
+        ShutterSpeed: 1.20000005
+        TAU: 1.10000002
+        TagFilter: null
+        UpVector:
+          X: 0.0
+          Y: 1.0
+          Z: 0.0
+        UsePhysicalParameters: false
+    Children: []
+    Id: 2907fd8e-4bda-46e7-ba6a-dd398cb6ccd0
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: SunLight
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 22c13871-a8ab-4b68-917f-ab3555cf6225
+        IsEnabled: true
+        LocalOrientation:
+          W: 0.582563519
+          X: -0.271654308
+          Y: 0.694271922
+          Z: 0.323743761
+        LocalPosition:
+          X: 4.0
+          Y: 4.0
+          Z: 4.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !WaveEngine.Framework.Graphics.PhotometricDirectionalLight,WaveEngine.Framework
+        Id: 46f0cc62-b2d7-4dda-94f8-dd8ae8079551
+        Color:
+          A: 255
+          B: 253
+          G: 248
+          R: 255
+        ColorByTemperature: true
+        DebugMode: false
+        GammaDistribution: 0.800000012
+        Illuminance: 3.0
+        Intensity: 3.0
+        IsEnabled: true
+        IsShadowEnabled: true
+        LinearColor:
+          A: 1.0
+          B: 0.982790232
+          G: 0.943362474
+          R: 1.0
+        ShadowBias: 0.00499999989
+        ShadowDistance: 80.0
+        ShadowOpacity: 1.0
+        SplitDistance:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+        Temperature: 6500.0
+      - !WaveEngine.Framework.Graphics.SunComponent,WaveEngine.Framework
+        Id: e7983e79-5a08-488e-a7d2-4e026ce9a5b8
+        IsEnabled: true
+    Children: []
+    Id: 3bb7c8e5-32db-4470-8bff-43a47248f508
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: SkyAtmosphere
+    Tag: Skybox
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 5f77f650-91a0-4027-97b6-680314118cdf
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !WaveEngine.Components.Graphics3D.MaterialComponent,WaveEngine.Framework
+        Id: d2fe5aed-7143-46d2-8bd6-98c1822c947b
+        AsignedTo: Default
+        IsEnabled: true
+        Material: null
+      - !WaveEngine.Components.Graphics3D.SphereMesh,WaveEngine.Components
+        Id: 4073413a-b4fa-4970-8c94-b0a3975ca7e3
+        Diameter: 1.0
+        IsEnabled: true
+        Tessellation: 32
+        UVHorizontalFlip: false
+        UVVerticalFlip: false
+      - !WaveEngine.Components.Graphics3D.MeshRenderer,WaveEngine.Framework
+        Id: c82db6ef-dab1-4ea5-869e-a9821bc60acf
+        DebugBoundingbox: true
+        IsCullingEnabled: false
+        IsEnabled: true
+        OrderBias: 0
+        RenderFlags: CastShadows
+      - !WaveEngine.Components.Environment.AtmosphereController,WaveEngine.Components
+        Id: 7d73c062-0d46-4d3e-9a88-564cb695634d
+        AtmosphereRadiusInKm: 6471.0
+        IsEnabled: true
+        MiePreferredScatteringDirection: 0.758000016
+        MieScaleHeight: 1200.0
+        MieScatteringCoefficient: 21.0
+        ModifySunColor: true
+        PlanetRadiusInKm: 6371.0
+        RayleighScaleHeight: 8000.0
+        RayleighScatteringCoefficient:
+          X: 5.5
+          Y: 13.0
+          Z: 22.3999996
+        SunDiskEnabled: true
+        SunDiskSize: 0.0199999996
+        SunIntensity: 22.0
+        UpdateOrder: 0.5
+    Children: []
+    Id: 9f70fac7-20b2-4efb-b0f0-25b237a83af0
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: buttons
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 156a70fe-c043-4014-bb08-8aeed4cc74d1
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+    Children:
+      - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+        Name: configurators
+        Tag: null
+        IsEnabled: true
+        IsStatic: false
+        Components:
+          - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+            Id: ff9a7ced-ace1-473e-a805-661f9dba3134
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalPosition:
+              X: 0.0680612251
+              Y: 0.0477196798
+              Z: 8.11349921E-09
+            LocalScale:
+              X: 1.0
+              Y: 1.0
+              Z: 1.0
+        Children:
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: SectionTitle
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: 1a66710c-d33e-4e17-8029-789e342da1ae
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: 0.0
+                  Z: 0.0
+                LocalPosition:
+                  X: 0.0202045143
+                  Y: 0.0610097721
+                  Z: 0.0430143513
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine_MRTK_Demo.Toolkit.Components.GUI.Text3D,WaveEngine_MRTK_Demo
+                Id: b0b1a6e2-c1f1-436c-ac01-54cb5c0576b8
+                Alpha: 1.0
+                Background:
+                  A: 0
+                  B: 0
+                  G: 0
+                  R: 0
+                CustomHeight: false
+                CustomWidth: false
+                FontFamilySource: /Fonts/#Segoe UI
+                FontSize: 64
+                FontStretch: Normal
+                FontStyle: Normal
+                FontWeight: Bold
+                Foreground:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                Height: 0.022751322
+                HorizontalAlignment: Left
+                IsEnabled: true
+                Normal: ZNegative
+                Origin:
+                  X: 0.0
+                  Y: 0.5
+                PixelDensity: 3780
+                Text: Button configurator
+                TextAlignment: Left
+                TextTrimming: None
+                TextWrapping: NoWrap
+                UpdateOrder: 0.5
+                VerticalAlignment: Center
+                Width: 0.159788355
+            Children: []
+            Id: dc47303b-bfcc-4f39-8720-5a72b9eaa455
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: default
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: c5f5baa9-ea25-4952-a269-bc99d41abc94
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: 0.0
+                  Z: 0.0
+                LocalPosition:
+                  X: 0.0
+                  Y: 0.0202627182
+                  Z: 2.41549625E-09
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                Id: 6926f3b0-2107-4827-a312-95918f8ae4aa
+                DuplicateMaterials: false
+                IsEnabled: true
+                ScenePrefabProperty:
+                  PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+            Children: []
+            Id: af1aef4c-3e30-4492-98f5-23d2f6d57ffd
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: changedIconButNoTint
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: b953c8d2-1013-4a11-9e63-7b99494b63ef
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: 0.0
+                  Z: 0.0
+                LocalPosition:
+                  X: -0.0391719267
+                  Y: 0.020175837
+                  Z: 2.45893528E-09
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                Id: 4de7b75e-5653-4e34-81a6-caacb1f3a707
+                DuplicateMaterials: false
+                IsEnabled: true
+                ScenePrefabProperty:
+                  PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
+                Id: 309cbf29-93e7-4ecd-9ad1-2a622fb01fd8
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: d129f5e3-9a07-442b-8f09-779075e73943
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+            Children: []
+            Id: 21816007-1624-4b36-bd3c-db8e44ea4038
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: changedIconAndTint
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: 7806690c-a204-46ef-b900-8244295a59bc
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: -4.36332302E-05
+                  Z: 0.0
+                LocalPosition:
+                  X: -0.0777043849
+                  Y: 0.0214931965
+                  Z: 2.77633028E-09
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                Id: 55054189-1fab-4602-b4dd-e07f33fdbe3b
+                DuplicateMaterials: false
+                IsEnabled: true
+                ScenePrefabProperty:
+                  PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
+                Id: c126b565-cee2-4191-9932-4af6b83afcb8
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: true
+                Icon: d129f5e3-9a07-442b-8f09-779075e73943
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 4
+                  G: 0
+                  R: 255
+            Children: []
+            Id: a64593a6-6491-4252-b116-321a8c32c3a0
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: changedIconAndBack
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: 703744ed-1954-4246-a09e-c0075086372e
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: -4.36332302E-05
+                  Z: 0.0
+                LocalPosition:
+                  X: -0.119441576
+                  Y: 0.0217784867
+                  Z: 2.40792808E-09
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                Id: 3bb28f41-6e7b-4b03-a088-dbf7e5a0bf99
+                DuplicateMaterials: false
+                IsEnabled: true
+                ScenePrefabProperty:
+                  PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons.PressableButtonConfigurator,WaveEngine.MRTK
+                Id: 96cb98f6-9bf4-4044-a033-56ce8ae0a6a7
+                BackPlate: 5b5bc9bf-19f4-4513-9e52-d0e5935da820
+                CreatesNewBackPlateMaterialInstance: true
+                CreatesNewIconMaterialInstance: true
+                Icon: d129f5e3-9a07-442b-8f09-779075e73943
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 4
+                  G: 0
+                  R: 255
+            Children: []
+            Id: 20ee1516-f2a6-4e8c-a2b4-6afc0dc7d4af
+        Id: 835cec66-e9ba-44b6-b32a-d7608f442607
+      - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+        Name: toggleButtons
+        Tag: null
+        IsEnabled: true
+        IsStatic: false
+        Components:
+          - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+            Id: 1d575f8b-5714-4f3c-9c11-b8740f47850b
+            IsEnabled: true
+            LocalOrientation:
+              W: 1.0
+              X: 0.0
+              Y: 0.0
+              Z: 0.0
+            LocalPosition:
+              X: -0.127636433
+              Y: 0.110005051
+              Z: -2.1017792E-09
+            LocalScale:
+              X: 1.0
+              Y: 1.0
+              Z: 1.0
+        Children:
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: SectionTitle
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: be872e2f-434b-4f4b-af18-bad5ae42bd57
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: 0.0
+                  Z: 0.0
+                LocalPosition:
+                  X: 0.0
+                  Y: 0.0
+                  Z: 0.0
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine_MRTK_Demo.Toolkit.Components.GUI.Text3D,WaveEngine_MRTK_Demo
+                Id: 59b6eac2-ee3c-4e10-a998-dc27b267f9d9
+                Alpha: 1.0
+                Background:
+                  A: 0
+                  B: 0
+                  G: 0
+                  R: 0
+                CustomHeight: false
+                CustomWidth: false
+                FontFamilySource: /Fonts/#Segoe UI
+                FontSize: 64
+                FontStretch: Normal
+                FontStyle: Normal
+                FontWeight: Bold
+                Foreground:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                Height: 0.022751322
+                HorizontalAlignment: Left
+                IsEnabled: true
+                Normal: ZNegative
+                Origin:
+                  X: 0.0
+                  Y: 0.5
+                PixelDensity: 3780
+                Text: Toggle buttons
+                TextAlignment: Left
+                TextTrimming: None
+                TextWrapping: NoWrap
+                UpdateOrder: 0.5
+                VerticalAlignment: Center
+                Width: 0.120370373
+            Children: []
+            Id: 5c6e7de8-acf5-46d4-9d39-40a0a93de5c4
+          - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+            Name: singleToggleButton
+            Tag: null
+            IsEnabled: true
+            IsStatic: false
+            Components:
+              - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+                Id: 1d010519-1a36-40e7-9cd4-edabd3b919ca
+                IsEnabled: true
+                LocalOrientation:
+                  W: 1.0
+                  X: 0.0
+                  Y: -4.36332302E-05
+                  Z: 0.0
+                LocalPosition:
+                  X: -0.0167510509
+                  Y: -0.0373487249
+                  Z: -6.44919496E-09
+                LocalScale:
+                  X: 1.0
+                  Y: 1.0
+                  Z: 1.0
+              - !WaveEngine.MRTK.Toolkit.Prefabs.ScenePrefab,WaveEngine.MRTK
+                Id: e001de5e-5e77-45d6-90fb-19a7f53f7b02
+                DuplicateMaterials: false
+                IsEnabled: true
+                ScenePrefabProperty:
+                  PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButton,WaveEngine.MRTK
+                Id: 4b2f88c9-15ed-4c77-84a6-d01d9977297a
+                IsEnabled: true
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateManager,WaveEngine.MRTK
+                Id: 452c9353-02c7-4d2f-992e-921d3bacd42f
+                IsEnabled: true
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 723f65f5-434a-4bb4-bbfb-31e95933584e
+                BackPlate: 95c775d7-1461-4465-beb0-84ec959e4ede
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: true
+                Icon: 469a29b3-53be-4afd-adbc-14ca42894154
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 0
+                  G: 0
+                  R: 190
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 9e210d1b-906a-44e8-813c-4a5c1212abcd
+                BackPlate: 4f32ee6e-22c9-48be-ad27-76ba638454fb
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: true
+                Icon: d129f5e3-9a07-442b-8f09-779075e73943
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 13
+                  G: 245
+                  R: 41
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: ba1af5d5-e0b4-4f49-aa2e-7787060cba30
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: d3aeaf92-deeb-482c-a2eb-f57435fb3eaa
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: d6b20817-1be5-43d5-9e5b-d34bdec9d40e
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: e3742114-d5ce-4b4d-8319-0b3d1c3d11ce
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: b1d7341a-0994-45c1-85c2-e37aa9ecdabf
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 541dea05-e89d-47bf-ae74-d49f20cc74f5
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 32e28a43-e5b0-4eb0-b9fd-81f2cf152264
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 701bcae1-8eb3-4085-9c86-d5f32de0cacb
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 04347e07-db53-43c5-a29e-c44c02b550d8
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 89462028-14e8-4857-8d94-38e27fd360be
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 5eb872b0-da89-4513-9246-b4b8f7358ca4
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 5b76838c-77af-4559-9a09-631b59890626
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: 40101d5e-cae7-414f-a0fb-5567e005ff17
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: true
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: Off
+              - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                Id: a7aad315-ea9c-434d-9be9-38c2b1d20a16
+                BackPlate: null
+                CreatesNewBackPlateMaterialInstance: false
+                CreatesNewIconMaterialInstance: false
+                Icon: null
+                IsEnabled: false
+                PrimaryColor:
+                  A: 255
+                  B: 255
+                  G: 255
+                  R: 255
+                TargetState: On
+            Children: []
+            Id: 2efd3d57-ebc1-42db-ab43-d4ba06770cf9
+        Id: 815d0337-9358-436b-9291-64e3bc5ff2a2
+    Id: a0b61b52-227b-4631-bcec-da9742093dc0
+Managers: []
