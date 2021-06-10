@@ -1,10 +1,12 @@
 ﻿// Copyright © Wave Engine S.L. All rights reserved. Use is subject to license terms.
+using System;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Components.Graphics3D;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.MRTK.Effects;
 using WaveEngine.MRTK.Extensions;
+using WaveEngine.MRTK.Toolkit.GUI;
 
 namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
 {
@@ -19,6 +21,9 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "icon", isRequired: true)]
         private MaterialComponent iconMaterial = null;
 
+        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "text")]
+        private Text3D buttonText = null;
+
         private Material backPlate;
         private Material cachedBackPlate;
         private HoloGraphic backPlateHoloMaterial;
@@ -28,6 +33,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         private HoloGraphic iconHoloMaterial;
 
         private Color primaryColor = Color.White;
+        private string text;
 
         /// <summary>
         /// Gets or sets back plate material.
@@ -92,12 +98,31 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
             }
         }
 
+        /// <summary>
+        /// Gets or sets button text.
+        /// </summary>
+        public string Text
+        {
+            get => this.text;
+
+            set
+            {
+                if (this.text != value)
+                {
+                    this.text = value;
+                    this.UpdateText();
+                }
+            }
+        }
+
         /// <inheritdoc />
         protected override void OnActivated()
         {
             base.OnActivated();
             this.OnBackPlateUpdate();
             this.OnIconUpdate();
+            this.UpdateText();
+            this.UpdateTextColor();
         }
 
         private void OnBackPlateUpdate() => this.ApplyMaterial(
@@ -121,6 +146,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         private void OnPrimaryColorUpdate()
         {
             this.UpdateIconTint();
+            this.UpdateTextColor();
         }
 
         private void UpdateIconTint()
@@ -128,6 +154,25 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
             if (this.iconHoloMaterial != null)
             {
                 this.iconHoloMaterial.Albedo = this.primaryColor;
+            }
+        }
+
+        private void UpdateText()
+        {
+            if (this.buttonText != null)
+            {
+                // we can't pass a null string, as this will provoke an
+                // exception with noesis block width. As workaround we place a
+                // single space string.
+                this.buttonText.Text = this.Text ?? " ";
+            }
+        }
+
+        private void UpdateTextColor()
+        {
+            if (this.buttonText != null)
+            {
+                this.buttonText.Foreground = this.primaryColor;
             }
         }
 

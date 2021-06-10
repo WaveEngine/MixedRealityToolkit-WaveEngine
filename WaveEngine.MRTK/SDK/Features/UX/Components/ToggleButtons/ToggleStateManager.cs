@@ -1,6 +1,8 @@
 ﻿// Copyright © Wave Engine S.L. All rights reserved. Use is subject to license terms.
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using WaveEngine.MRTK.SDK.Features.UX.Components.States;
 
 namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
@@ -16,8 +18,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
             bool attached = base.OnAttached();
             if (attached)
             {
-                this.Owner.AddComponent(new ToggleButtonConfigurator() { TargetState = ToggleState.Off });
-                this.Owner.AddComponent(new ToggleButtonConfigurator() { TargetState = ToggleState.On });
+                this.AddDefaultComponents();
             }
 
             return attached;
@@ -39,6 +40,28 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
             });
 
             return states;
+        }
+
+        private void AddDefaultComponents()
+        {
+            var allConfigurations = this.Owner.FindComponents<ToggleButtonConfigurator>();
+            if (!allConfigurations.Any())
+            {
+                return;
+            }
+
+            var allStates = Enum.GetValues(typeof(ToggleState))
+                .Cast<ToggleState>()
+                .ToArray();
+
+            for (int i = 0; i < allStates.Length; i++)
+            {
+                var state = allStates[i];
+                if (!allConfigurations.Any(config => config.TargetState == state))
+                {
+                    this.Owner.AddComponent(new ToggleButtonConfigurator() { TargetState = state });
+                }
+            }
         }
     }
 }
