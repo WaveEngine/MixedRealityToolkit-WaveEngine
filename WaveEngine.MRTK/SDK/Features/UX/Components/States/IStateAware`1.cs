@@ -15,8 +15,8 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
         bool IsEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets target state.
+        /// Gets target state.
         /// </summary>
-        TState TargetState { get; set; }
+        TState TargetState { get; }
     }
 }
