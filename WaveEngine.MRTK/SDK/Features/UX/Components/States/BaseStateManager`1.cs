@@ -11,23 +11,24 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
     /// <summary>
     /// Handles states on a component.
     /// </summary>
-    public abstract class BaseStateComponent : Component
+    /// <typeparam name="TState">State type.</typeparam>
+    public abstract class BaseStateManager<TState> : Component
     {
         [BindComponent(source: BindComponentSource.ChildrenSkipOwner, isRequired: true)]
         private PressableButton button = null;
 
-        private State currentState;
-        private List<State> allStates;
+        private State<TState> currentState;
+        private List<State<TState>> allStates;
 
         /// <summary>
         /// Gets current state.
         /// </summary>
-        public State CurrentState { get => this.currentState; }
+        public State<TState> CurrentState { get => this.currentState; }
 
         /// <summary>
         /// Raised when state changes.
         /// </summary>
-        public event EventHandler<StateChangedEventArgs> StateChanged;
+        public event EventHandler<StateChangedEventArgs<TState>> StateChanged;
 
         /// <inheritdoc />
         protected override bool OnAttached()
@@ -37,10 +38,16 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
             {
                 this.button.ButtonPressed += this.Button_ButtonPressed;
                 this.allStates = this.GetStateList();
-                this.currentState = this.allStates.FirstOrDefault();
             }
 
             return attached;
+        }
+
+        /// <inheritdoc />
+        protected override void Start()
+        {
+            base.Start();
+            this.ChangeState(this.allStates.FirstOrDefault());
         }
 
         /// <inheritdoc />
@@ -54,28 +61,46 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
         /// Child classes should load here the list of states.
         /// </summary>
         /// <returns>List of states to handle.</returns>
-        protected abstract List<State> GetStateList();
+        protected abstract List<State<TState>> GetStateList();
 
         /// <summary>
         /// Retrieves next state once user presses the button.
         /// </summary>
         /// <returns>Next state.</returns>
-        protected virtual State GetNextState()
+        protected virtual State<TState> GetNextState()
         {
             return this.currentState == null
                 ? this.allStates.FirstOrDefault()
                 : this.allStates[(this.allStates.IndexOf(this.currentState) + 1) % this.allStates.Count];
         }
 
-        private void Button_ButtonPressed(object sender, EventArgs e)
+        private void ChangeState(State<TState> newState)
         {
-            var newState = this.GetNextState();
             if (newState != this.currentState)
             {
                 var oldState = this.currentState;
                 this.currentState = newState;
-                this.StateChanged?.Invoke(this, new StateChangedEventArgs(oldState, newState));
+                this.NotifyStateAware();
+                this.StateChanged?.Invoke(this, new StateChangedEventArgs<TState>(oldState, newState));
             }
+        }
+
+        private void NotifyStateAware()
+        {
+            var allConfigurators = this.Owner
+                .FindComponents(typeof(IStateAware<TState>), isExactType: false)
+                .Cast<IStateAware<TState>>();
+            for (int i = 0; i < allConfigurators.Count(); i++)
+            {
+                var current = allConfigurators.ElementAt(i);
+                current.IsEnabled = current.TargetState?.Equals(this.currentState.Value) ?? false;
+            }
+        }
+
+        private void Button_ButtonPressed(object sender, EventArgs e)
+        {
+            var newState = this.GetNextState();
+            this.ChangeState(newState);
         }
     }
 }

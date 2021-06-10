@@ -7,10 +7,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
     /// <summary>
     /// Event args for state changes in a button.
     /// </summary>
-    public class StateChangedEventArgs : EventArgs
+    /// <typeparam name="TState">State type.</typeparam>
+    public class StateChangedEventArgs<TState> : EventArgs
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateChangedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="StateChangedEventArgs{TState}"/> class.
         /// </summary>
         public StateChangedEventArgs()
             : this(null, null)
@@ -18,11 +19,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StateChangedEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="StateChangedEventArgs{TState}"/> class.
         /// </summary>
         /// <param name="oldState">Old state instance.</param>
         /// <param name="newState">New state instance.</param>
-        public StateChangedEventArgs(State oldState, State newState)
+        public StateChangedEventArgs(State<TState> oldState, State<TState> newState)
         {
             this.OldState = oldState;
             this.NewState = newState;
@@ -31,11 +32,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
         /// <summary>
         /// Gets or sets old state instance.
         /// </summary>
-        public State OldState { get; set; }
+        public State<TState> OldState { get; set; }
 
         /// <summary>
         /// Gets or sets new state instance.
         /// </summary>
-        public State NewState { get; set; }
+        public State<TState> NewState { get; set; }
     }
 }

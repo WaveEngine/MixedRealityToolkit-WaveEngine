@@ -2,18 +2,17 @@
 
 using WaveEngine.Framework;
 using WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons;
+using WaveEngine.MRTK.SDK.Features.UX.Components.States;
 
 namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
 {
     /// <summary>
-    /// Configuration for toggle button in a given state.
+    /// Button configuration for toggle states.
     /// </summary>
     [AllowMultipleInstances]
-    public class ToggleStateConfigurator : PressableButtonConfigurator
+    public class ToggleButtonConfigurator : PressableButtonConfigurator, IStateAware<ToggleState>
     {
-        /// <summary>
-        /// Gets or sets target state.
-        /// </summary>
-        public ToggleState Target { get; set; }
+        /// <inheritdoc />
+        public ToggleState TargetState { get; set; }
     }
 }

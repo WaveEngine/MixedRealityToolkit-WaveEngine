@@ -12,7 +12,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
     /// </summary>
     public class ToggleButton : Component
     {
-        private ToggleStateComponent toggleStateComponent;
+        private ToggleStateManager stateManager;
 
         /// <summary>
         /// Raised when toggle status changes.
@@ -38,13 +38,6 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
         }
 
         /// <inheritdoc />
-        protected override void Start()
-        {
-            base.Start();
-            this.OnStateChanged(this.toggleStateComponent.CurrentState as State<ToggleState>);
-        }
-
-        /// <inheritdoc />
         protected override void OnDetach()
         {
             base.OnDetach();
@@ -53,13 +46,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
 
         private void AddComponents()
         {
-            this.toggleStateComponent = this.Owner.FindComponent<ToggleStateComponent>();
-            if (this.toggleStateComponent == null)
+            this.stateManager = this.Owner.FindComponent<ToggleStateManager>();
+            if (this.stateManager == null)
             {
-                this.toggleStateComponent = new ToggleStateComponent();
-                this.Owner.AddComponent(this.toggleStateComponent);
-                this.Owner.AddComponent(new ToggleStateConfigurator() { Target = ToggleState.Off });
-                this.Owner.AddComponent(new ToggleStateConfigurator() { Target = ToggleState.On });
+                this.stateManager = new ToggleStateManager();
+                this.Owner.AddComponent(this.stateManager);
             }
         }
 
@@ -69,38 +60,25 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
             return toggleState?.Value == ToggleState.On;
         }
 
-        private void OnStateChanged(State<ToggleState> newState)
-        {
-            var allConfigurators = this.Owner.FindComponents<ToggleStateConfigurator>(isExactType: false);
-            for (int i = 0; i < allConfigurators.Count(); i++)
-            {
-                var current = allConfigurators.ElementAt(i);
-                current.IsEnabled = current.Target == newState.Value;
-            }
-        }
-
         private void SubscribeEvents()
         {
-            if (this.toggleStateComponent != null)
+            if (this.stateManager != null)
             {
-                this.toggleStateComponent.StateChanged += this.ToggleStateComponent_StateChanged;
+                this.stateManager.StateChanged += this.ToggleStateComponent_StateChanged;
             }
         }
 
         private void UnsubscribeEvents()
         {
-            if (this.toggleStateComponent != null)
+            if (this.stateManager != null)
             {
-                this.toggleStateComponent.StateChanged -= this.ToggleStateComponent_StateChanged;
+                this.stateManager.StateChanged -= this.ToggleStateComponent_StateChanged;
             }
         }
 
-        private void ToggleStateComponent_StateChanged(object sender, StateChangedEventArgs e)
-        {
-            this.OnStateChanged(e.NewState as State<ToggleState>);
+        private void ToggleStateComponent_StateChanged(object sender, StateChangedEventArgs<ToggleState> e) =>
             this.Toggled?.Invoke(this, EventArgs.Empty);
-        }
 
-        private State<ToggleState> GetToggleState() => this.toggleStateComponent?.CurrentState as State<ToggleState>;
+        private State<ToggleState> GetToggleState() => this.stateManager?.CurrentState;
     }
 }

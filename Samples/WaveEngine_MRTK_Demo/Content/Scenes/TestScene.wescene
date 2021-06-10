@@ -26,7 +26,7 @@ Items:
         Id: 615f5159-9a4d-47f6-9e3b-012b4dc13180
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: e037bc29-3de3-49cc-a4e6-dc1a5cd49071
+        ReflectionProbe: 610bdd9c-8c11-4d8c-a9fd-8b23840e2630
     Children: []
     Id: 046665f3-bf43-4a2f-9c17-ac19073d0d84
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
@@ -1255,13 +1255,13 @@ Items:
                     ScenePrefabProperty:
                       PrefabId: facc69c2-67f2-4bc3-97cd-d1ddbd42a7e5
                   - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButton,WaveEngine.MRTK
-                    Id: e6dc8ffd-0251-41fc-ba20-7d2e5ad207cf
+                    Id: b01dc4da-15c2-441f-935f-510611b7c2e8
                     IsEnabled: true
-                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateComponent,WaveEngine.MRTK
-                    Id: 6f99bf08-c775-431e-9898-b25472326949
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateManager,WaveEngine.MRTK
+                    Id: ccc39371-aa60-46f4-a534-a6bcdd91ff5f
                     IsEnabled: true
-                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateConfigurator,WaveEngine.MRTK
-                    Id: 7c8eca5d-b7e2-4ff6-8184-b9b6444273c4
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                    Id: f1e10c83-2c06-4c55-b62d-ed01b3eef4cb
                     BackPlate: 95c775d7-1461-4465-beb0-84ec959e4ede
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
@@ -1271,10 +1271,10 @@ Items:
                       A: 255
                       B: 0
                       G: 0
-                      R: 252
-                    Target: Off
-                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleStateConfigurator,WaveEngine.MRTK
-                    Id: f53682fd-5bfd-40d4-95b7-80800c4cce9c
+                      R: 190
+                    TargetState: Off
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                    Id: 7ab5275d-82ba-44fa-97ac-f15aac2d9830
                     BackPlate: 4f32ee6e-22c9-48be-ad27-76ba638454fb
                     CreatesNewBackPlateMaterialInstance: false
                     CreatesNewIconMaterialInstance: true
@@ -1282,10 +1282,36 @@ Items:
                     IsEnabled: false
                     PrimaryColor:
                       A: 255
-                      B: 33
-                      G: 190
-                      R: 56
-                    Target: On
+                      B: 13
+                      G: 245
+                      R: 41
+                    TargetState: On
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                    Id: 776de586-a031-4e20-844c-193c04f230bc
+                    BackPlate: null
+                    CreatesNewBackPlateMaterialInstance: false
+                    CreatesNewIconMaterialInstance: false
+                    Icon: null
+                    IsEnabled: true
+                    PrimaryColor:
+                      A: 255
+                      B: 255
+                      G: 255
+                      R: 255
+                    TargetState: Off
+                  - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
+                    Id: 916b1721-e661-40e5-8cb7-1e91b67cd85c
+                    BackPlate: null
+                    CreatesNewBackPlateMaterialInstance: false
+                    CreatesNewIconMaterialInstance: false
+                    Icon: null
+                    IsEnabled: false
+                    PrimaryColor:
+                      A: 255
+                      B: 255
+                      G: 255
+                      R: 255
+                    TargetState: On
                 Children: []
                 Id: fa14ea29-1d55-4ee1-867f-647e0dd227e8
             Id: a4eb9292-cc1a-4d6d-ae7c-044a0034c214

@@ -6,8 +6,13 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.States
     /// UI element state model.
     /// </summary>
     /// <typeparam name="T">Value type.</typeparam>
-    public class State<T> : State
+    public class State<T>
     {
+        /// <summary>
+        /// Gets or sets state name.
+        /// </summary>
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets or sets value.
         /// </summary>
