@@ -330,7 +330,7 @@ Items:
                   X: 1.0
                   Y: 1.0
                   Z: 1.0
-              - !WaveEngine_MRTK_Demo.Toolkit.Components.GUI.Text3D,WaveEngine_MRTK_Demo
+              - !WaveEngine.MRTK.Toolkit.GUI.Text3D,WaveEngine.MRTK
                 Id: a61a3638-748a-4a7d-8b72-a2ac44dc7df4
                 Alpha: 1.0
                 Background:

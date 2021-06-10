@@ -922,7 +922,7 @@ Items:
                           X: 1.0
                           Y: 1.0
                           Z: 1.0
-                      - !WaveEngine_MRTK_Demo.Toolkit.Components.GUI.Text3D,WaveEngine_MRTK_Demo
+                      - !WaveEngine.MRTK.Toolkit.GUI.Text3D,WaveEngine.MRTK
                         Id: dac94535-3c81-43aa-ab9f-e84a79a2b4e8
                         Alpha: 1.0
                         Background:
@@ -981,7 +981,7 @@ Items:
                           X: 1.0
                           Y: 1.0
                           Z: 1.0
-                      - !WaveEngine_MRTK_Demo.Toolkit.Components.GUI.Text3D,WaveEngine_MRTK_Demo
+                      - !WaveEngine.MRTK.Toolkit.GUI.Text3D,WaveEngine.MRTK
                         Id: f14fa961-5935-410c-a28c-7359be6ff675
                         Alpha: 1.0
                         Background:
