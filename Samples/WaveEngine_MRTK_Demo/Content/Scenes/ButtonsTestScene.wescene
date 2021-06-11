@@ -1,13 +1,13 @@
 !WaveEngine.Framework.Assets.AssetSources.Entities.SceneModel,WaveEngine.Framework
 Items:
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
-    Name: SceneManagers
+    Name: EnvironmentManager
     Tag: null
     IsEnabled: true
     IsStatic: false
     Components:
       - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
-        Id: 16c60597-cd18-4af6-a268-872e92808207
+        Id: c0788a5b-c07e-4d66-8914-509036988d63
         IsEnabled: true
         LocalOrientation:
           W: 1.0
@@ -15,114 +15,20 @@ Items:
           Y: 0.0
           Z: 0.0
         LocalPosition:
-          X: 0.0
-          Y: 0.0
-          Z: 0.0
+          X: 0.999729156
+          Y: 1.580235
+          Z: 0.843612909
         LocalScale:
           X: 1.0
           Y: 1.0
           Z: 1.0
       - !WaveEngine.Components.Graphics3D.EnvironmentComponent,WaveEngine.Framework
-        Id: 721f879f-b83e-4e13-b3dc-375de85062c9
+        Id: b537b1d8-389b-4794-bcf0-cc3275595bdf
         IntensityMultiplier: 1.0
         IsEnabled: true
-        ReflectionProbe: 7db1ba7e-3e39-4143-82ef-5300140f2031
-      - !WaveEngine.Components.Graphics3D.ShadowMapComponent,WaveEngine.Framework
-        Id: c10eea46-7369-41fa-ba9b-da027e9636f7
-        AutoDepthBounds: false
-        DirectionalResolution: Size_2048
-        IsEnabled: true
-        PunctualResolution: Size_512
-        ShadowFilter: PCF3x3
-        SpotResolution: Size_512
+        ReflectionProbe: 839c65c0-0814-423e-b26a-6f53ad486166
     Children: []
-    Id: b2d3cd08-9bc3-4d6a-852c-b0fc68f064f8
-  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
-    Name: Camera
-    Tag: null
-    IsEnabled: true
-    IsStatic: false
-    Components:
-      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
-        Id: 77c1a3e2-9ee0-4c5c-bde3-4d07b454a931
-        IsEnabled: true
-        LocalOrientation:
-          W: -4.37113883E-08
-          X: 0.0
-          Y: -1.0
-          Z: 0.0
-        LocalPosition:
-          X: 0.0
-          Y: 0.0
-          Z: -0.49622497
-        LocalScale:
-          X: 1.0
-          Y: 1.0
-          Z: 1.0
-      - !WaveEngine.Components.Cameras.FreeCamera3D,WaveEngine.Components
-        Id: 974c6a83-061b-459d-aa07-237259bb3b2c
-        IsEnabled: true
-        MaxPitch: 1.49225652
-        MouseSensibility: 0.200000003
-        Speed: 0.200000003
-        TouchMoveAndOrientationRatio: 0.5
-        TouchSensibility: 1.0
-        UpdateOrder: 0.5
-      - !WaveEngine.Framework.Graphics.Camera3D,WaveEngine.Framework
-        Id: 45c3b7cb-5e69-4bf0-b32b-540319d9175e
-        Aperture: 1.0
-        AspectRatio: 1.36725664
-        AutoDepthBounds: false
-        AutoExposureEnabled: false
-        CameraOrder: 0.0
-        ClearDepth: 1.0
-        ClearFlags: All
-        ClearStencil: 0
-        Compensation: 0.0
-        DepthRange:
-          MaxDepth: 1.0
-          MinDepth: 0.0
-        DisplayTag: null
-        DisplayTagDirty: false
-        Exposure: 1.0
-        FarPlane: 1000.0
-        FieldOfView: 0.785398185
-        FieldOfViewAxis: Vertical
-        FocalDistance: 1.0
-        FocalLength: 50.0
-        FrustumCullingEnabled: true
-        HDREnabled: true
-        IsEnabled: true
-        LayerMaskDefaultValue: true
-        LinearBackgroundColor:
-          A: 1.0
-          B: 0.851251662
-          G: 0.306634784
-          R: 0.12752977
-        LogLuminanceRange: 12.0
-        MinLogLuminance: -10.0
-        NearPlane: 0.100000001
-        ScreenViewport:
-          Height: 226.0
-          MaxDepth: 1.0
-          MinDepth: 0.0
-          Width: 309.0
-          X: 0.0
-          Y: 0.0
-        Sensitivity: 100.0
-        SensorSize:
-          X: 36.0
-          Y: 24.0
-        ShutterSpeed: 1.20000005
-        TAU: 1.10000002
-        TagFilter: null
-        UpVector:
-          X: 0.0
-          Y: 1.0
-          Z: 0.0
-        UsePhysicalParameters: false
-    Children: []
-    Id: 2907fd8e-4bda-46e7-ba6a-dd398cb6ccd0
+    Id: 80fb1754-e6a4-4d7b-97bf-c38aa6a8cdd0
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
     Name: SunLight
     Tag: null
@@ -240,6 +146,119 @@ Items:
     Children: []
     Id: 9f70fac7-20b2-4efb-b0f0-25b237a83af0
   - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: HolographicBatching
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 19dc237f-2193-46d1-87ae-2b079749a9c3
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !WaveEngine.MRTK.Emulation.HolographicBatching,WaveEngine.MRTK
+        Id: 73f7b265-5ecd-4ebb-918f-459e31ba83e3
+        IsEnabled: true
+    Children: []
+    Id: f9f55114-ead4-41b5-916a-a7442221c16a
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
+    Name: Camera
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !WaveEngine.Framework.Graphics.Transform3D,WaveEngine.Framework
+        Id: 77c1a3e2-9ee0-4c5c-bde3-4d07b454a931
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: -0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.5
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !WaveEngine.Components.Cameras.FreeCamera3D,WaveEngine.Components
+        Id: 974c6a83-061b-459d-aa07-237259bb3b2c
+        IsEnabled: true
+        MaxPitch: 1.49225652
+        MouseSensibility: 0.200000003
+        Speed: 0.200000003
+        TouchMoveAndOrientationRatio: 0.5
+        TouchSensibility: 1.0
+        UpdateOrder: 0.5
+      - !WaveEngine.Framework.Graphics.Camera3D,WaveEngine.Framework
+        Id: 45c3b7cb-5e69-4bf0-b32b-540319d9175e
+        Aperture: 1.0
+        AspectRatio: 1.74418604
+        AutoDepthBounds: false
+        AutoExposureEnabled: false
+        CameraOrder: 0.0
+        ClearDepth: 1.0
+        ClearFlags: All
+        ClearStencil: 0
+        Compensation: 0.0
+        DepthRange:
+          MaxDepth: 1.0
+          MinDepth: 0.0
+        DisplayTag: null
+        DisplayTagDirty: false
+        Exposure: 1.0
+        FarPlane: 1000.0
+        FieldOfView: 0.785398185
+        FieldOfViewAxis: Vertical
+        FocalDistance: 1.0
+        FocalLength: 50.0
+        FrustumCullingEnabled: true
+        HDREnabled: true
+        IsEnabled: true
+        LayerMaskDefaultValue: true
+        LinearBackgroundColor:
+          A: 0.0
+          B: 0.0
+          G: 0.0
+          R: 0.0
+        LogLuminanceRange: 12.0
+        MinLogLuminance: -10.0
+        NearPlane: 0.100000001
+        ScreenViewport:
+          Height: 172.0
+          MaxDepth: 1.0
+          MinDepth: 0.0
+          Width: 300.0
+          X: 0.0
+          Y: 0.0
+        Sensitivity: 100.0
+        SensorSize:
+          X: 36.0
+          Y: 24.0
+        ShutterSpeed: 1.20000005
+        TAU: 1.10000002
+        TagFilter: null
+        UpVector:
+          X: 0.0
+          Y: 1.0
+          Z: 0.0
+        UsePhysicalParameters: false
+    Children: []
+    Id: 2907fd8e-4bda-46e7-ba6a-dd398cb6ccd0
+  - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
     Name: buttons
     Tag: null
     IsEnabled: true
@@ -249,9 +268,9 @@ Items:
         Id: 156a70fe-c043-4014-bb08-8aeed4cc74d1
         IsEnabled: true
         LocalOrientation:
-          W: 1.0
-          X: 0.0
-          Y: 0.0
+          W: -4.37113883E-08
+          X: -0.0
+          Y: 1.0
           Z: 0.0
         LocalPosition:
           X: 0.0
@@ -1230,34 +1249,6 @@ Items:
                             Front: 3521d95f-b8ce-40cb-b4d0-c268f64496bd
                             IsEnabled: false
                             TargetState: On
-                          - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
-                            Id: 2b09a24f-8410-4fd1-8f8d-ada526d0e8e4
-                            CreatesNewBackPlateMaterialInstance: false
-                            CreatesNewIconMaterialInstance: false
-                            Icon: null
-                            IsEnabled: true
-                            Plate: null
-                            PrimaryColor:
-                              A: 255
-                              B: 255
-                              G: 255
-                              R: 255
-                            TargetState: Off
-                            Text: null
-                          - !WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons.ToggleButtonConfigurator,WaveEngine.MRTK
-                            Id: 8a73c131-1ba8-44d6-adf5-b26d84e4bb66
-                            CreatesNewBackPlateMaterialInstance: false
-                            CreatesNewIconMaterialInstance: false
-                            Icon: null
-                            IsEnabled: false
-                            Plate: null
-                            PrimaryColor:
-                              A: 255
-                              B: 255
-                              G: 255
-                              R: 255
-                            TargetState: On
-                            Text: null
                         Children: []
                         Id: 883b7133-c441-460e-a7da-fe77c11afea9
                     Id: 6cde09a5-38b8-4ffa-aec8-e98d33173ffc

@@ -51,6 +51,11 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
 
         private void AddDefaultComponents()
         {
+            if (this.DefaultComponentsAdded)
+            {
+                return;
+            }
+
             var allConfigurations = this.Owner.FindComponents<ToggleButtonConfigurator>(isExactType: false);
             var allStates = Enum.GetValues(typeof(ToggleState))
                 .Cast<ToggleState>()
