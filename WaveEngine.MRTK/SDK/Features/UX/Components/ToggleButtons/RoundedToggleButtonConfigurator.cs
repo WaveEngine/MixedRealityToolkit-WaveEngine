@@ -7,10 +7,10 @@ using WaveEngine.MRTK.SDK.Features.UX.Components.States;
 namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
 {
     /// <summary>
-    /// Button configuration for toggle states.
+    /// Rounded button configuration for toggle states.
     /// </summary>
     [AllowMultipleInstances]
-    public class ToggleButtonConfigurator : StandardButtonConfigurator, IStateAware<ToggleState>
+    public class RoundedToggleButtonConfigurator : RoundedButtonConfigurator, IStateAware<ToggleState>
     {
         /// <inheritdoc />
         public ToggleState TargetState { get; set; }

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using WaveEngine.Common.Attributes;
 using WaveEngine.MRTK.SDK.Features.UX.Components.States;
 
 namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
@@ -12,6 +13,12 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
     /// </summary>
     public class ToggleStateManager : BaseStateManager<ToggleState>
     {
+        /// <summary>
+        /// Gets or sets a value indicating whether default components should be added.
+        /// </summary>
+        [DontRenderProperty]
+        public bool DefaultComponentsAdded { get; set; }
+
         /// <inheritdoc />
         protected override bool OnAttached()
         {
@@ -44,12 +51,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
 
         private void AddDefaultComponents()
         {
-            var allConfigurations = this.Owner.FindComponents<ToggleButtonConfigurator>();
-            if (!allConfigurations.Any())
-            {
-                return;
-            }
-
+            var allConfigurations = this.Owner.FindComponents<ToggleButtonConfigurator>(isExactType: false);
             var allStates = Enum.GetValues(typeof(ToggleState))
                 .Cast<ToggleState>()
                 .ToArray();
@@ -62,6 +64,8 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.ToggleButtons
                     this.Owner.AddComponent(new ToggleButtonConfigurator() { TargetState = state });
                 }
             }
+
+            this.DefaultComponentsAdded = true;
         }
     }
 }

@@ -1,54 +1,57 @@
 ﻿// Copyright © Wave Engine S.L. All rights reserved. Use is subject to license terms.
-using System;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Components.Graphics3D;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
-using WaveEngine.MRTK.Effects;
-using WaveEngine.MRTK.Extensions;
 using WaveEngine.MRTK.Toolkit.GUI;
 
-namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
+namespace WaveEngine.MRTK.SDK.Features.UX.Components.Configurators
 {
     /// <summary>
-    /// Configures some UI elements for an entity that uses <see cref="PressableButton"/>.
+    /// Configures some UI elements for a standard UI button.
     /// </summary>
-    public class PressableButtonConfigurator : Component
+    public class StandardButtonConfigurator : Component
     {
-        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "backPlate", isRequired: true)]
-        private MaterialComponent backPlateMaterial = null;
+        private readonly MaterialConfigurator plateConfigurator;
+        private readonly MaterialConfigurator iconConfigurator;
 
-        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "icon", isRequired: true)]
+        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "PART_Plate", isRequired: false)]
+        private MaterialComponent pateMaterial = null;
+
+        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "PART_Icon", isRequired: false)]
         private MaterialComponent iconMaterial = null;
 
-        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "text")]
+        [BindComponent(source: BindComponentSource.ChildrenSkipOwner, tag: "PART_Text", isRequired: false)]
         private Text3D buttonText = null;
 
-        private Material backPlate;
-        private Material cachedBackPlate;
-        private HoloGraphic backPlateHoloMaterial;
-
+        private Material plate;
         private Material icon;
-        private Material cachedIcon;
-        private HoloGraphic iconHoloMaterial;
 
         private Color primaryColor = Color.White;
         private string text;
 
         /// <summary>
-        /// Gets or sets back plate material.
+        /// Initializes a new instance of the <see cref="StandardButtonConfigurator"/> class.
         /// </summary>
-        public Material BackPlate
+        public StandardButtonConfigurator()
         {
-            get => this.backPlate;
+            this.plateConfigurator = new MaterialConfigurator();
+            this.iconConfigurator = new MaterialConfigurator();
+        }
+
+        /// <summary>
+        /// Gets or sets plate material.
+        /// </summary>
+        public Material Plate
+        {
+            get => this.plate;
 
             set
             {
-                if (this.backPlate != value)
+                if (this.plate != value)
                 {
-                    this.backPlate = value;
-                    this.InvalidateMaterial(ref this.cachedBackPlate);
-                    this.OnBackPlateUpdate();
+                    this.plate = value;
+                    this.plateConfigurator.Material = value;
                 }
             }
         }
@@ -75,8 +78,7 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
                 if (this.icon != value)
                 {
                     this.icon = value;
-                    this.InvalidateMaterial(ref this.cachedIcon);
-                    this.OnIconUpdate();
+                    this.iconConfigurator.Material = value;
                 }
             }
         }
@@ -116,45 +118,36 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
         }
 
         /// <inheritdoc />
+        protected override bool OnAttached()
+        {
+            bool attached = base.OnAttached();
+            if (attached)
+            {
+                this.plateConfigurator.UseAssetManager(this.Managers.AssetSceneManager);
+                this.iconConfigurator.UseAssetManager(this.Managers.AssetSceneManager);
+                this.plateConfigurator.CreatesNewMaterialInstance = this.CreatesNewBackPlateMaterialInstance;
+                this.iconConfigurator.CreatesNewMaterialInstance = this.CreatesNewIconMaterialInstance;
+                this.plateConfigurator.TargetMaterialComponent = this.pateMaterial;
+                this.iconConfigurator.TargetMaterialComponent = this.iconMaterial;
+            }
+
+            return attached;
+        }
+
+        /// <inheritdoc />
         protected override void OnActivated()
         {
             base.OnActivated();
-            this.OnBackPlateUpdate();
-            this.OnIconUpdate();
+            this.plateConfigurator.Apply();
+            this.iconConfigurator.Apply();
             this.UpdateText();
             this.UpdateTextColor();
         }
 
-        private void OnBackPlateUpdate() => this.ApplyMaterial(
-            this.backPlate,
-            this.backPlateMaterial,
-            this.CreatesNewBackPlateMaterialInstance,
-            ref this.cachedBackPlate,
-            ref this.backPlateHoloMaterial);
-
-        private void OnIconUpdate()
-        {
-            this.ApplyMaterial(
-              this.icon,
-              this.iconMaterial,
-              this.CreatesNewIconMaterialInstance,
-              ref this.cachedIcon,
-              ref this.iconHoloMaterial);
-            this.UpdateIconTint();
-        }
-
         private void OnPrimaryColorUpdate()
         {
-            this.UpdateIconTint();
+            this.iconConfigurator.TintColor = this.primaryColor;
             this.UpdateTextColor();
-        }
-
-        private void UpdateIconTint()
-        {
-            if (this.iconHoloMaterial != null)
-            {
-                this.iconHoloMaterial.Albedo = this.primaryColor;
-            }
         }
 
         private void UpdateText()
@@ -175,28 +168,5 @@ namespace WaveEngine.MRTK.SDK.Features.UX.Components.PressableButtons
                 this.buttonText.Foreground = this.primaryColor;
             }
         }
-
-        private void ApplyMaterial(
-            Material sourceMaterial,
-            MaterialComponent targetMaterialComponent,
-            bool newInstanceFlag,
-            ref Material cachedMaterial,
-            ref HoloGraphic targetHoloMaterial)
-        {
-            if (sourceMaterial != null && targetMaterialComponent != null)
-            {
-                if (cachedMaterial == null)
-                {
-                    cachedMaterial = newInstanceFlag
-                        ? sourceMaterial.LoadNewInstance(this.Managers.AssetSceneManager)
-                        : sourceMaterial;
-                }
-
-                targetMaterialComponent.Material = cachedMaterial;
-                targetHoloMaterial = new HoloGraphic(cachedMaterial);
-            }
-        }
-
-        private void InvalidateMaterial(ref Material material) => material = null;
     }
 }

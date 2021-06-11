@@ -97,7 +97,7 @@ Items:
         Children:
           - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
             Name: tube
-            Tag: null
+            Tag: PART_Back
             IsEnabled: true
             IsStatic: false
             Components:
@@ -162,7 +162,7 @@ Items:
             Children:
               - !WaveEngine.Framework.Assets.AssetSources.Entities.EntityItemModel,WaveEngine.Framework
                 Name: cylinder
-                Tag: null
+                Tag: PART_Front
                 IsEnabled: true
                 IsStatic: false
                 Components:
